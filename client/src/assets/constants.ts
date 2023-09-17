@@ -1,5 +1,10 @@
 import { IconType } from 'react-icons'
-import { HiOutlineHashtag, HiOutlineHome, HiOutlinePhotograph, HiOutlineUserGroup } from 'react-icons/hi'
+import {
+  HiOutlineHashtag,
+  HiOutlineHome,
+  HiOutlinePhotograph,
+  HiOutlineUserGroup,
+} from 'react-icons/hi'
 
 interface IGenre {
   title: string
@@ -30,8 +35,24 @@ interface ILink {
 }
 
 export const links: ILink[] = [
-  { name: 'Discover', to: '/', icon: HiOutlineHome },
-  { name: 'Around You', to: '/around-you', icon: HiOutlinePhotograph },
-  { name: 'Top Artists', to: '/top-artists', icon: HiOutlineUserGroup },
-  { name: 'Top Charts', to: '/top-charts', icon: HiOutlineHashtag },
+  {
+    name: 'Discover',
+    to: '/',
+    icon: HiOutlineHome,
+  },
+  {
+    name: 'Around You',
+    to: '/around-you',
+    icon: HiOutlinePhotograph,
+  },
+  {
+    name: 'Top Artists',
+    to: '/top-artists',
+    icon: HiOutlineUserGroup,
+  },
+  {
+    name: 'Top Charts',
+    to: '/top-charts',
+    icon: HiOutlineHashtag,
+  },
 ]

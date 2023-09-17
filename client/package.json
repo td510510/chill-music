@@ -10,8 +10,7 @@
     "preview": "vite preview",
     "checkFormat": "prettier . --check",
     "format": "prettier . --write",
-    "postinstall": "cd ../ && husky install ./.husky",
-    "lint-staged": "lint-staged"
+    "postinstall": "cd ../ && husky install ./.husky"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",

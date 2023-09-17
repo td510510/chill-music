@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       colors: {
@@ -20,20 +23,38 @@ module.exports = {
           to: { opacity: 1 },
         },
         slideup: {
-          from: { opacity: 0, transform: 'translateY(25%)' },
+          from: {
+            opacity: 0,
+            transform: 'translateY(25%)',
+          },
           to: { opacity: 1, transform: 'none' },
         },
         slidedown: {
-          from: { opacity: 0, transform: 'translateY(-25%)' },
+          from: {
+            opacity: 0,
+            transform: 'translateY(-25%)',
+          },
           to: { opacity: 1, transform: 'none' },
         },
         slideleft: {
-          from: { opacity: 0, transform: 'translateX(-20px)' },
-          to: { opacity: 1, transform: 'translateX(0)' },
+          from: {
+            opacity: 0,
+            transform: 'translateX(-20px)',
+          },
+          to: {
+            opacity: 1,
+            transform: 'translateX(0)',
+          },
         },
         slideright: {
-          from: { opacity: 0, transform: 'translateX(20px)' },
-          to: { opacity: 1, transform: 'translateX(0)' },
+          from: {
+            opacity: 0,
+            transform: 'translateX(20px)',
+          },
+          to: {
+            opacity: 1,
+            transform: 'translateX(0)',
+          },
         },
         wave: {
           '0%': { transform: 'scale(0)' },
