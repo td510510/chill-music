@@ -1,29 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useSelector } from 'react-redux'
+import { Route, Routes } from 'react-router-dom'
+
+import { SearchBar, SideBar, MusicPlayer, TopPlay } from '@/components'
+import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts } from '@/pages'
+import { selectPlayer } from './redux/features/playerSlice'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { activeSong } = useSelector(selectPlayer)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="relative flex">
+      <SideBar />
+      <div className="flex-1 flex flex-col bg-gradient-to-br from-black to-[#121286]">
+        <SearchBar />
+        <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
+          <div className="flex-1 h-fit pb-4">
+            <Routes>
+              <Route path="/" element={<Discover />} />
+              <Route path="/top-artists" element={<TopArtists />} />
+              <Route path="/top-charts" element={<TopCharts />} />
+              <Route path="/around-you" element={<AroundYou />} />
+              <Route path="/artists/:id" element={<ArtistDetails />} />
+              <Route path="/songs/:songId" element={<SongDetails />} />
+              <Route path="/search/:searchTerm" element={<Search />} />
+            </Routes>
+          </div>
+          <div className="xl:sticky relative top-0 h-fit">
+            <TopPlay />
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+      {activeSong?.title && (
+        <div className="absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#2a2a80] backdrop-blur-lg rounded-t-3xl z-10">
+          <MusicPlayer />
+        </div>
+      )}
+    </div>
   )
 }
 

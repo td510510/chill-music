@@ -1,13 +1,14 @@
-import { useRef, useEffect, FC } from 'react'
+import { useRef, useEffect, FC, ChangeEvent } from 'react'
 
 interface PlayerProps {
   activeSong: any
   isPlaying: boolean
   volume: number
   seekTime: number
+  currentIndex: number
   onEnded: () => void
-  onTimeUpdate: () => void
-  onLoadedData: () => void
+  onTimeUpdate: (e: ChangeEvent<HTMLAudioElement>) => void
+  onLoadedData: (e: ChangeEvent<HTMLAudioElement>) => void
   repeat: boolean
 }
 
@@ -16,6 +17,7 @@ const Player: FC<PlayerProps> = ({
   isPlaying,
   volume,
   seekTime,
+  currentIndex,
   onEnded,
   onTimeUpdate,
   onLoadedData,

@@ -1,15 +1,16 @@
-import { FC, Dispatch, SetStateAction } from 'react'
+import { FC, Dispatch, SetStateAction, ChangeEvent } from 'react'
 import { BsFillVolumeUpFill, BsVolumeDownFill, BsFillVolumeMuteFill } from 'react-icons/bs'
 
 interface VolumeBarProps {
-  value: number
+  volume: number
+  value?: number
   min: number
   max: number
-  onChange: () => void
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
   setVolume: Dispatch<SetStateAction<number>>
 }
 
-const VolumeBar: FC<VolumeBarProps> = ({ value, min, max, onChange, setVolume }) => {
+const VolumeBar: FC<VolumeBarProps> = ({ volume, value, min, max, onChange, setVolume }) => {
   return (
     <div className="hidden lg:flex flex-1 items-center justify-end">
       {value <= 1 && value > 0.5 && <BsFillVolumeUpFill size={25} color="#FFF" onClick={() => setVolume(0)} />}
