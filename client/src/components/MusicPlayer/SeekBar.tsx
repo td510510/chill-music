@@ -1,10 +1,10 @@
-import { Dispatch, FC, SetStateAction } from 'react'
+import { ChangeEvent, Dispatch, FC, SetStateAction } from 'react'
 
 interface SeekBarProps {
   value: number
   min: number
   max: number
-  onInput: () => void
+  onInput: (e: ChangeEvent<HTMLInputElement>) => void
   setSeekTime: Dispatch<SetStateAction<number>>
   appTime: number
 }
