@@ -9,7 +9,9 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "checkFormat": "prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "postinstall": "cd ../ && husky install ./.husky",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
