@@ -1,7 +1,7 @@
 import SideBar from './SideBar'
 import SearchBar from './SearchBar'
+import PlaylistCard from './PlaylistCard'
 import SongCard from './SongCard'
-import TopPlay from './TopPlay'
 import ArtistCard from './ArtistCard'
 import DetailsHeader from './DetailsHeader'
 import SongBar from './SongBar'
@@ -11,9 +11,9 @@ import Loader from './Loader'
 import Error from './Error'
 
 export {
-  TopPlay,
-  SideBar,
   SongCard,
+  SideBar,
+  PlaylistCard,
   SearchBar,
   ArtistCard,
   DetailsHeader,
