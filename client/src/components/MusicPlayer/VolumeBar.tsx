@@ -3,23 +3,22 @@ import { BsFillVolumeUpFill, BsVolumeDownFill, BsFillVolumeMuteFill } from 'reac
 
 interface VolumeBarProps {
   volume: number
-  value?: number
   min: number
   max: number
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
   setVolume: Dispatch<SetStateAction<number>>
 }
 
-const VolumeBar: FC<VolumeBarProps> = ({ volume, value, min, max, onChange, setVolume }) => {
+const VolumeBar: FC<VolumeBarProps> = ({ volume, min, max, onChange, setVolume }) => {
   return (
     <div className="hidden lg:flex flex-1 items-center justify-end">
-      {value <= 1 && value > 0.5 && <BsFillVolumeUpFill size={25} color="#FFF" onClick={() => setVolume(0)} />}
-      {value <= 0.5 && value > 0 && <BsVolumeDownFill size={25} color="#FFF" onClick={() => setVolume(0)} />}
-      {value === 0 && <BsFillVolumeMuteFill size={25} color="#FFF" onClick={() => setVolume(1)} />}
+      {volume <= 1 && volume > 0.5 && <BsFillVolumeUpFill size={25} color="#FFF" onClick={() => setVolume(0)} />}
+      {volume <= 0.5 && volume > 0 && <BsVolumeDownFill size={25} color="#FFF" onClick={() => setVolume(0)} />}
+      {volume === 0 && <BsFillVolumeMuteFill size={25} color="#FFF" onClick={() => setVolume(1)} />}
       <input
         type="range"
         step="any"
-        value={value}
+        value={volume}
         min={min}
         max={max}
         onChange={onChange}
