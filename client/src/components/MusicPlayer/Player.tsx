@@ -1,7 +1,7 @@
-import { useRef, useEffect, FC, ChangeEvent } from 'react'
-
+import { getSong } from '@/apis/song'
+import { useRef, useEffect, FC, ChangeEvent, useState } from 'react'
 interface PlayerProps {
-  activeSong: any
+  activeSongId: string
   isPlaying: boolean
   volume: number
   seekTime: number
@@ -13,17 +13,18 @@ interface PlayerProps {
 }
 
 const Player: FC<PlayerProps> = ({
-  activeSong,
+  activeSongId,
   isPlaying,
   volume,
   seekTime,
-  currentIndex,
   onEnded,
   onTimeUpdate,
   onLoadedData,
   repeat,
 }) => {
+  const [audioSource, setAudioSource] = useState('')
   const audioRef = useRef<HTMLAudioElement>(null)
+
   if (audioRef.current) {
     if (isPlaying) {
       audioRef.current.play()
@@ -31,6 +32,20 @@ const Player: FC<PlayerProps> = ({
       audioRef.current.pause()
     }
   }
+
+  const getCurrentSong = async () => {
+    try {
+      console.log('call eff')
+      const audio = await getSong(activeSongId)
+      setAudioSource(audio[128])
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getCurrentSong()
+  }, [activeSongId])
 
   useEffect(() => {
     if (audioRef.current) audioRef.current.volume = volume
@@ -43,7 +58,7 @@ const Player: FC<PlayerProps> = ({
   return (
     <audio
       ref={audioRef}
-      src={activeSong?.hub?.action[1]?.uri}
+      src={audioSource}
       loop={repeat}
       onEnded={onEnded}
       onTimeUpdate={onTimeUpdate}

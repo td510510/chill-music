@@ -4,7 +4,6 @@ import { BsArrowRepeat, BsFillPauseFill, BsFillPlayFill, BsShuffle } from 'react
 
 interface ControlsProps {
   isPlaying: boolean
-  isActive: boolean
   repeat: boolean
   setRepeat: Dispatch<SetStateAction<boolean>>
   shuffle: boolean
@@ -17,7 +16,6 @@ interface ControlsProps {
 
 const Controls: FC<ControlsProps> = ({
   isPlaying,
-  isActive,
   repeat,
   setRepeat,
   shuffle,

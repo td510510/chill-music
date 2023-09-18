@@ -24,18 +24,10 @@ export const playerSlice = createSlice({
   name: 'player',
   initialState,
   reducers: {
-    setActiveSong: (state, action: PayloadAction<any>) => {
+    setActiveSong: (state, action: PayloadAction<{ song: object; playlist: []; index: number }>) => {
       state.activeSong = action.payload.song
-
-      if (action.payload.data.track.hit) {
-        state.currentSongs = action.payload.data.tracks.hits
-      } else if (action.payload.data.properties) {
-        state.currentSongs = action.payload.data.tracks
-      } else {
-        state.currentSongs = action.payload.data
-      }
-
-      state.currentIndex = action.payload.i
+      state.currentSongs = action.payload.playlist
+      state.currentIndex = action.payload.index
       state.isActive = true
     },
 
