@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -16,61 +16,29 @@ module.exports = {
       },
       keyframes: {
         slowfade: {
-          from: {
-            opacity: 0,
-          },
+          from: { opacity: 0 },
           to: { opacity: 1 },
         },
         slideup: {
-          from: {
-            opacity: 0,
-            transform: 'translateY(25%)',
-          },
-          to: {
-            opacity: 1,
-            transform: 'none',
-          },
+          from: { opacity: 0, transform: 'translateY(25%)' },
+          to: { opacity: 1, transform: 'none' },
         },
         slidedown: {
-          from: {
-            opacity: 0,
-            transform: 'translateY(-25%)',
-          },
-          to: {
-            opacity: 1,
-            transform: 'none',
-          },
+          from: { opacity: 0, transform: 'translateY(-25%)' },
+          to: { opacity: 1, transform: 'none' },
         },
         slideleft: {
-          from: {
-            opacity: 0,
-            transform: 'translateX(-20px)',
-          },
-          to: {
-            opacity: 1,
-            transform: 'translateX(0)',
-          },
+          from: { opacity: 0, transform: 'translateX(-20px)' },
+          to: { opacity: 1, transform: 'translateX(0)' },
         },
         slideright: {
-          from: {
-            opacity: 0,
-            transform: 'translateX(20px)',
-          },
-          to: {
-            opacity: 1,
-            transform: 'translateX(0)',
-          },
+          from: { opacity: 0, transform: 'translateX(20px)' },
+          to: { opacity: 1, transform: 'translateX(0)' },
         },
         wave: {
-          '0%': {
-            transform: 'scale(0)',
-          },
-          '50%': {
-            transform: 'scale(1)',
-          },
-          '100%': {
-            transform: 'scale(0)',
-          },
+          '0%': { transform: 'scale(0)' },
+          '50%': { transform: 'scale(1)' },
+          '100%': { transform: 'scale(0)' },
         },
       },
     },

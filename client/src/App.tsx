@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 
-import { SearchBar, SideBar, MusicPlayer, TopPlay } from '@/components'
+import { SearchBar, SideBar, MusicPlayer } from '@/components'
 import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts } from '@/pages'
 import { selectPlayer } from './redux/features/playerSlice'
 
@@ -25,9 +25,9 @@ function App() {
               <Route path="/search/:searchTerm" element={<Search />} />
             </Routes>
           </div>
-          <div className="xl:sticky relative top-0 h-fit">
+          {/* <div className="xl:sticky relative top-0 h-fit">
             <TopPlay />
-          </div>
+          </div> */}
         </div>
       </div>
       {activeSong?.title && (
