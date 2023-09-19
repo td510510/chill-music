@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 // import { useDispatch } from 'react-redux'
 
 import { FC } from 'react'
@@ -13,9 +13,14 @@ interface PlaylistCardProps {
 }
 
 const PlaylistCard: FC<PlaylistCardProps> = ({ title, sortDescription, thumbnail, id }) => {
+  const navigate = useNavigate()
+
   return (
-    <div className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer">
-      <div className="h-56 w-full overflow-hidden rounded-lg ">
+    <div
+      className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer"
+      onClick={() => navigate(`/playlist/${id}`)}
+    >
+      <div className="h-56 w-full overflow-hidden rounded-lg">
         <img
           src={thumbnail}
           alt="song image"
@@ -23,9 +28,7 @@ const PlaylistCard: FC<PlaylistCardProps> = ({ title, sortDescription, thumbnail
         />
       </div>
       <div className="mt-4 flex flex-col">
-        <p className="font-semibold text-lg text-white truncate">
-          <Link to={`/playlist/${id}`}>{title}</Link>
-        </p>
+        <p className="font-semibold text-lg text-white truncate">{title}</p>
         <p className="text-sm text-gray-300 mt-1 truncate">{sortDescription}</p>
       </div>
     </div>

@@ -37,16 +37,16 @@ const SongCard: FC<SongCardProps> = ({
       <h3 className="font-bold text-xs text-white mr-3">{index + 1}</h3>
       <div className="flex-1 flex flex-row justify-between items-center w-full overflow-hidden">
         <img src={thumbnail} alt={title} className="w-20 -h-20 rounded-lg" />
-        <div className="flex-1 flex flex-col justify-center mx-3 truncate">
-          <p className="text-base font-bold text-white truncate">{title}</p>
-          <p className="text-xs text-gray-300 mt-1 truncate">
+        <div className="flex-1 flex flex-col justify-center mx-3">
+          <p className="sm:text-base text-sm font-bold text-white ellipsis-two-line">{title}</p>
+          <p className="text-xs text-gray-300 mt-1 ellipsis-one-line">
             {artists
-              .filter((artist: any) => artist !== undefined)
-              .map((artist: { alias: string; name: string }, index: number) => (
+              ?.filter((artist: any) => artist !== undefined)
+              ?.map((artist: { alias: string; name: string }, index: number) => (
                 <span key={artist.name}>
                   {index > 0 ? <span>, </span> : ''}
-                  <Link to={`/artist/${artist.alias}`} className="hover:underline">
-                    {artist.name}
+                  <Link to={`/artist/${artist?.alias}`} className="hover:underline">
+                    {artist?.name}
                   </Link>
                 </span>
               ))}
@@ -57,7 +57,7 @@ const SongCard: FC<SongCardProps> = ({
         <PlayPause
           handlePauseClick={handlePauseClick}
           handlePlayClick={handlePlayClick}
-          isPlaying={isPlaying && activeSong.encodeId === encodeId}
+          isPlaying={isPlaying && activeSong?.encodeId === encodeId}
         />
       </div>
     </div>
