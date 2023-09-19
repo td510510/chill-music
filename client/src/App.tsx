@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 
-import { SearchBar, SideBar, MusicPlayer } from '@/components'
-import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts } from '@/pages'
+import { SearchBar, SideBar, MusicPlayer, VideoPlayer } from '@/components'
+import { ArtistDetails, Top100, Discover, Search, SongDetails, TopCharts, Playlist, MV } from '@/pages'
 import { selectPlayer } from './redux/features/playerSlice'
 
 function App() {
@@ -17,10 +17,12 @@ function App() {
           <div className="flex-1 h-fit pb-4">
             <Routes>
               <Route path="/" element={<Discover />} />
-              <Route path="/top-artists" element={<TopArtists />} />
+              <Route path="/top-100" element={<Top100 />} />
               <Route path="/top-charts" element={<TopCharts />} />
-              <Route path="/around-you" element={<AroundYou />} />
-              <Route path="/artists/:id" element={<ArtistDetails />} />
+              <Route path="/mv" element={<MV />} />
+              <Route path="/mv/:mvId" element={<VideoPlayer />} />
+              <Route path="/artist/:artistId" element={<ArtistDetails />} />
+              <Route path="/playlist/:playlistId" element={<Playlist />} />
               <Route path="/songs/:songId" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
             </Routes>

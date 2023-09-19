@@ -8,6 +8,9 @@ export const musicCoreApi = createApi({
   endpoints: (builder) => ({
     getHomePlayList: builder.query({ query: () => '/home' }),
     getArtist: builder.query({ query: (name) => `/artist?name=${name}` }),
+    getArtistSongs: builder.query({
+      query: ({ id, page, count }) => `/artist-songs?id=${id}&page=${page}&count=${count}`,
+    }),
     getDetailPlaylist: builder.query({ query: (id) => `/detail-playlist?id=${id}` }),
     getLyric: builder.query({ query: (id) => `/lyric?id=${id}` }),
     getMV: builder.query({ query: (id) => `/video?id=${id}` }),
@@ -23,6 +26,7 @@ export const musicCoreApi = createApi({
 export const {
   useGetHomePlayListQuery,
   useGetArtistQuery,
+  useGetArtistSongsQuery,
   useGetDetailPlaylistQuery,
   useGetLyricQuery,
   useGetMVQuery,

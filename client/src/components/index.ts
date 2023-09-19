@@ -9,6 +9,9 @@ import RelatedSongs from './RelatedSongs'
 import MusicPlayer from './MusicPlayer'
 import Loader from './Loader'
 import Error from './Error'
+import PlaylistDetail from './PlaylistDetail'
+import MVCard from './MVCard'
+import VideoPlayer from './VideoPlayer'
 
 export {
   SongCard,
@@ -22,4 +25,7 @@ export {
   MusicPlayer,
   Loader,
   Error,
+  PlaylistDetail,
+  MVCard,
+  VideoPlayer,
 }

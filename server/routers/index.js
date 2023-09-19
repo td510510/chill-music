@@ -27,7 +27,7 @@ router.get('/info-song', musicController.getInfo);
 router.get('/artist', musicController.getArtist);
 
 // getArtistSong
-router.get('/artist-song', musicController.getArtistSong);
+router.get('/artist-songs', musicController.getArtistSong);
 
 // getLyric
 router.get('/lyric', musicController.getLyric);

@@ -1,10 +1,10 @@
 import { Error, Loader, PlaylistCard } from '@/components'
-import { useGetHomePlayListQuery } from '@/redux/services/musicCore'
+import { useGetTop100Query } from '@/redux/services/musicCore'
 import { SECTION_TYPE } from '@/constants'
 import { IPlaylistCard } from '@/types'
 
-const Discover = () => {
-  const { data, isFetching, error } = useGetHomePlayListQuery('')
+const Top100 = () => {
+  const { data, isFetching, error } = useGetTop100Query('')
 
   if (isFetching) return <Loader title="Loading songs..." />
 
@@ -12,10 +12,10 @@ const Discover = () => {
 
   return (
     <div className="flex flex-col">
-      {data.data.items.map((item) => {
+      {data.data.map((item) => {
         return item.sectionType == SECTION_TYPE.PLAYLIST ? (
-          <div className="mt-4 mb-10" key={item.title}>
-            <h2 className="font-bold text-3xl text-white text-left mb-10">{item.title}</h2>
+          <div className="mt-4 mb-10" key={item?.title}>
+            <h2 className="font-bold text-3xl text-white text-left mb-10">{item?.title}</h2>
             <div className="flex flex-wrap sm:justify-start justify-center gap-8">
               {item.items.map((songs: IPlaylistCard) => (
                 <PlaylistCard
@@ -36,4 +36,4 @@ const Discover = () => {
   )
 }
 
-export default Discover
+export default Top100
