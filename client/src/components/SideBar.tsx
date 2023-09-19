@@ -17,7 +17,7 @@ interface ILink {
 }
 
 const links: ILink[] = [
-  { name: 'Discover', to: '/', icon: HiOutlineHome },
+  { name: 'Home', to: '/', icon: HiOutlineHome },
   { name: 'MV', to: '/mv', icon: HiOutlinePhotograph },
   { name: 'Top 100', to: '/top-100', icon: HiOutlineUserGroup },
   { name: 'Top Charts', to: '/top-charts', icon: HiOutlineHashtag },

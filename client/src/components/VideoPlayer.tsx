@@ -9,12 +9,13 @@ const VideoPlayer = () => {
   const { mvId } = useParams()
   const [videoUrl, setVideoUrl] = useState<string>('')
   const { data, isFetching, error } = useGetMVQuery(mvId)
+  const initVideo = data?.data?.streaming?.hls || null
 
   if (isFetching) return <Loader title="Loading video..." />
 
   if (error) return <Error />
 
-  const initVideo = data?.data?.streaming?.hls || {}
+  if (!initVideo) return <Error />
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center gap-5">

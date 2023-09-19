@@ -2,21 +2,21 @@ import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 
 import { SearchBar, SideBar, MusicPlayer, VideoPlayer } from '@/components'
-import { ArtistDetails, Top100, Discover, Search, SongDetails, TopCharts, Playlist, MV } from '@/pages'
+import { ArtistDetails, Top100, Home, Search, SongDetails, TopCharts, Playlist, MV } from '@/pages'
 import { selectPlayer } from './redux/features/playerSlice'
 
 function App() {
   const { activeSong } = useSelector(selectPlayer)
 
   return (
-    <div className="relative flex">
+    <div className="relative flex bg-gradient-to-br from-black to-[#121286]">
       <SideBar />
-      <div className="flex-1 flex flex-col bg-gradient-to-br from-black to-[#121286]">
+      <div className="flex-1 flex flex-col max-w-[1442px] mx-auto">
         <SearchBar />
         <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-4">
             <Routes>
-              <Route path="/" element={<Discover />} />
+              <Route path="/" element={<Home />} />
               <Route path="/top-100" element={<Top100 />} />
               <Route path="/top-charts" element={<TopCharts />} />
               <Route path="/mv" element={<MV />} />

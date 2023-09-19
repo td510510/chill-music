@@ -15,13 +15,13 @@ const Top100 = () => {
       {data.data.map((item) => {
         return item.sectionType == SECTION_TYPE.PLAYLIST ? (
           <div className="mt-4 mb-10" key={item?.title}>
-            <h2 className="font-bold text-3xl text-white text-left mb-10">{item?.title}</h2>
-            <div className="flex flex-wrap sm:justify-start justify-center gap-8">
+            <h2 className="font-bold sm:text-3xl text-xl text-white text-left sm:mb-10 mb-6">{item?.title}</h2>
+            <div className="grid xl:grid-cols-4 min-[850px]:grid-cols-3 min-[400px]:grid-cols-2 grid-cols-1 justify-start md:gap-6 gap-4">
               {item.items.map((songs: IPlaylistCard) => (
                 <PlaylistCard
                   key={songs?.title}
                   title={songs?.title}
-                  thumbnail={songs?.thumbnail}
+                  thumbnail={songs?.thumbnailM || songs?.thumbnail}
                   id={songs?.encodeId}
                   sortDescription={songs?.sortDescription}
                 />

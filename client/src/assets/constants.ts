@@ -73,7 +73,7 @@ interface ILink {
 
 export const links: ILink[] = [
   {
-    name: 'Discover',
+    name: 'Home',
     to: '/',
     icon: HiOutlineHome,
   },

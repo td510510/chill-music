@@ -12,7 +12,7 @@ const MVCard: FC<MVCardProps> = ({ encodeId, title, thumbnail, artists }) => {
   const navigate = useNavigate()
 
   return (
-    <div className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer">
+    <div className="flex flex-col p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer">
       <div className=" w-full overflow-hidden rounded-lg" onClick={() => navigate(`/mv/${encodeId}`)}>
         <img
           src={thumbnail}
@@ -21,7 +21,7 @@ const MVCard: FC<MVCardProps> = ({ encodeId, title, thumbnail, artists }) => {
         />
       </div>
       <div className="mt-4 flex flex-col">
-        <p className="font-semibold text-lg text-white truncate">
+        <p className="font-semibold md:text-lg text-base text-white truncate">
           <Link to={`/mv/${encodeId}`}>{title}</Link>
         </p>
         <p className="text-xs text-gray-300 mt-1 truncate">
