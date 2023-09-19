@@ -21,7 +21,7 @@ const PlaylistDetail: FC<PlaylistDetailProps> = ({ thumbnailM, title, lastUpdate
         />
       </div>
       <div className="flex-1">
-        <h3 className="text-white text-xl font-bold">{title}</h3>
+        <h3 className="text-white md:text-lg text-base font-bold ellipsis-two-line">{title}</h3>
         <p className="text-white/75 text-xs mt-2">Cập nhật: {getDate(lastUpdate)}</p>
         <p className="text-white/75 text-xs mt-2">Lượt thích: {like}</p>
         {description ? (

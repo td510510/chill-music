@@ -2,4 +2,6 @@ const SECTION_TYPE = {
   PLAYLIST: 'playlist',
 }
 
-export { SECTION_TYPE }
+const COUNT = 20
+
+export { SECTION_TYPE, COUNT }

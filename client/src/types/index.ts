@@ -11,6 +11,7 @@ interface IPlaylistCard {
   title: string
   encodeId: string
   thumbnail: string
+  thumbnailM?: string
   sortDescription: string
 }
 

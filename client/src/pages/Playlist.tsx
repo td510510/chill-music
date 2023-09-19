@@ -9,15 +9,14 @@ const Playlist = () => {
   const { playlistId } = useParams()
 
   const { data, isFetching, error } = useGetDetailPlaylistQuery(playlistId)
+  const playlist = data?.data || []
 
   if (isFetching) return <Loader title="Loading songs..." />
 
-  if (error) return <Error />
-
-  const playlist = data?.data || []
+  if (error || !playlist || playlist.length === 0) return <Error />
 
   return (
-    <div className="flex xl:flex-row flex-col">
+    <div>
       <PlaylistDetail
         thumbnailM={playlist?.thumbnailM}
         title={playlist?.title}
@@ -25,7 +24,7 @@ const Playlist = () => {
         like={playlist?.like}
         description={playlist?.description}
       />
-      <div className="mt-4 mb-10" key={playlist?.title}>
+      <div className="mt-4 mb-10 grid grid-cols-1 xl:grid-cols-2 gap-x-16 gap-y-4" key={playlist?.title}>
         {playlist?.song?.items?.map((item: ISongCard, index: number) => (
           <SongCard
             key={`${item?.title} ${index}`}

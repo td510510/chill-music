@@ -17,10 +17,10 @@ const PlaylistCard: FC<PlaylistCardProps> = ({ title, sortDescription, thumbnail
 
   return (
     <div
-      className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer"
+      className="flex flex-col p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer"
       onClick={() => navigate(`/playlist/${id}`)}
     >
-      <div className="h-56 w-full overflow-hidden rounded-lg">
+      <div className="w-full overflow-hidden rounded-lg">
         <img
           src={thumbnail}
           alt="song image"
@@ -28,7 +28,7 @@ const PlaylistCard: FC<PlaylistCardProps> = ({ title, sortDescription, thumbnail
         />
       </div>
       <div className="mt-4 flex flex-col">
-        <p className="font-semibold text-lg text-white truncate">{title}</p>
+        <p className="font-semibold md:text-lg text-base text-white truncate">{title}</p>
         <p className="text-sm text-gray-300 mt-1 truncate">{sortDescription}</p>
       </div>
     </div>
