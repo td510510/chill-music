@@ -18,7 +18,7 @@ const Track: FC<TrackProps> = ({ isPlaying, isActive, activeSong }) => {
         <p className="text-white font-bold sm:text-lg text-sm ellipsis-two-line">
           {activeSong?.title || 'No active song'}
         </p>
-        <p className="truncate text-gray-300 sm:text-base text-sm ellipsis-one-line">
+        <p className="text-gray-300 sm:text-base text-sm ellipsis-one-line">
           {activeSong.artists
             .filter((artist: any) => artist !== undefined)
             .map((artist: { alias: string; name: string }, index: number) => (
