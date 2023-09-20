@@ -29,7 +29,7 @@ const Controls: FC<ControlsProps> = ({
     <div className="flex items-center justify-around md:w-36 lg:w-52 2xl:w-80 gap-1">
       <BsArrowRepeat
         size={20}
-        color={repeat ? 'red' : 'white'}
+        color={repeat ? '#06b6d4' : 'white'}
         onClick={() => setRepeat((prev) => !prev)}
         className="cursor-pointer"
       />
@@ -46,7 +46,7 @@ const Controls: FC<ControlsProps> = ({
       )}
       <BsShuffle
         size={20}
-        color={shuffle ? 'red' : 'white'}
+        color={shuffle ? '#06b6d4' : 'white'}
         onClick={() => setShuffle((prev) => !prev)}
         className="cursor-pointer"
       />
