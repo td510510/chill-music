@@ -50,10 +50,8 @@ const SongBar: FC<SongBarProps> = ({
       {!artistId ? (
         <PlayPause
           isPlaying={isPlaying}
-          activeSong={activeSong}
-          song={song}
-          handlePause={handlePauseClick}
-          handlePlay={() => handlePlayClick(song, index)}
+          handlePauseClick={handlePauseClick}
+          handlePlayClick={() => handlePlayClick(song, index)}
         />
       ) : (
         ''
