@@ -5,7 +5,7 @@ import { useGetSearchQuery } from '@/redux/services/musicCore'
 import { handlePauseClick, handlePlayClick } from '@/utils/playPauseMusic'
 import { ISongCard } from '@/types'
 
-const Search = () => {
+const SearchResult = () => {
   const { searchTerm } = useParams()
   const { data, isFetching, error } = useGetSearchQuery(searchTerm)
 
@@ -21,7 +21,7 @@ const Search = () => {
         <div className="flex flex-wrap sm:justify-start justify-center gap-8">
           {playlist.map((item: ISongCard, index: number) => (
             <SongCard
-              key={item?.title}
+              key={`${item?.title} ${index}`}
               artists={item?.artists}
               encodeId={item?.encodeId}
               thumbnail={item?.thumbnail}
@@ -38,4 +38,4 @@ const Search = () => {
   )
 }
 
-export default Search
+export default SearchResult
