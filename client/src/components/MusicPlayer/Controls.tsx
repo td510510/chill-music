@@ -26,12 +26,12 @@ const Controls: FC<ControlsProps> = ({
   handleNextSong,
 }) => {
   return (
-    <div className="flex items-center justify-around md:w-36 lg:w-52 2xl:w-80">
+    <div className="flex items-center justify-around md:w-36 lg:w-52 2xl:w-80 gap-1">
       <BsArrowRepeat
         size={20}
         color={repeat ? 'red' : 'white'}
         onClick={() => setRepeat((prev) => !prev)}
-        className="hidden sm:block cursor-pointer"
+        className="cursor-pointer"
       />
       {currentSongs?.length && (
         <MdSkipPrevious size={30} color="#FFF" className="cursor-pointer" onClick={handlePrevSong} />
@@ -48,7 +48,7 @@ const Controls: FC<ControlsProps> = ({
         size={20}
         color={shuffle ? 'red' : 'white'}
         onClick={() => setShuffle((prev) => !prev)}
-        className="hidden sm:block cursor-pointer"
+        className="cursor-pointer"
       />
     </div>
   )

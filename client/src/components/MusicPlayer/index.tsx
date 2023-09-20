@@ -13,7 +13,7 @@ const MusicPlayer = () => {
   const [duration, setDuration] = useState<number>(0)
   const [seekTime, setSeekTime] = useState<number>(0)
   const [appTime, setAppTime] = useState<number>(0)
-  const [volume, setVolume] = useState<number>(0.3)
+  const [volume, setVolume] = useState<number>(0.5)
   const [repeat, setRepeat] = useState<boolean>(false)
   const [shuffle, setShuffle] = useState<boolean>(false)
   const dispatch = useDispatch()

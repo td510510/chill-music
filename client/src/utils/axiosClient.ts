@@ -7,7 +7,6 @@ const instance = axios.create({
 // custom response
 instance.interceptors.response.use(
   (response) => {
-    console.log('run axios')
     return response.data.data
   },
   function (error) {

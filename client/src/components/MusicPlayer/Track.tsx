@@ -14,9 +14,11 @@ const Track: FC<TrackProps> = ({ isPlaying, isActive, activeSong }) => {
       >
         <img src={activeSong?.thumbnail} alt="Cover art" className="rounded-full" />
       </div>
-      <div className="w-[50%]">
-        <p className="truncate text-white font-bold text-lg">{activeSong?.title || 'No active song'}</p>
-        <p className="truncate text-gray-300">
+      <div className="sm:w-[50%] w-full mr-4">
+        <p className="text-white font-bold sm:text-lg text-sm ellipsis-two-line">
+          {activeSong?.title || 'No active song'}
+        </p>
+        <p className="truncate text-gray-300 sm:text-base text-sm ellipsis-one-line">
           {activeSong.artists
             .filter((artist: any) => artist !== undefined)
             .map((artist: { alias: string; name: string }, index: number) => (
