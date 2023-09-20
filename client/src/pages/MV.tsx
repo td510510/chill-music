@@ -29,21 +29,25 @@ const MV = () => {
 
   return (
     <>
-      <div className="flex gap-1 items-center justify-center">
-        <button
-          onClick={() => handleChangePrevPage(page, totalPage)}
-          className={`w-5 h-5 ${page <= 1 ? 'pointer-events-none' : ''}`}
-        >
-          <FcPrevious color="red" className="w-5 h-5" />
-        </button>
-        <span className="text-white">{`${page} / ${totalPage}`}</span>
-        <button
-          onClick={() => handleChangeNextPage(page, totalPage)}
-          className={`w-5 h-5 ${page >= totalPage ? 'pointer-events-none' : ''}`}
-        >
-          <FcNext className="w-5 h-5" />
-        </button>
-      </div>
+      {totalPage ? (
+        <div className="flex gap-1 items-center justify-center">
+          <button
+            onClick={() => handleChangePrevPage(page, totalPage)}
+            className={`w-5 h-5 ${page <= 1 ? 'pointer-events-none' : ''}`}
+          >
+            <FcPrevious color="red" className="w-5 h-5" />
+          </button>
+          <span className="text-white">{`${page} / ${totalPage}`}</span>
+          <button
+            onClick={() => handleChangeNextPage(page, totalPage)}
+            className={`w-5 h-5 ${page >= totalPage ? 'pointer-events-none' : ''}`}
+          >
+            <FcNext className="w-5 h-5" />
+          </button>
+        </div>
+      ) : (
+        ''
+      )}
       <div className="grid xl:grid-cols-4 min-[850px]:grid-cols-3 min-[400px]:grid-cols-2 grid-cols-1 md:gap-6 gap-4 mt-4">
         {listMV?.map(
           (item: { encodeId: string; title: string; thumbnail: string; thumbnailM?: string; artists: [] }) => (

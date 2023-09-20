@@ -10,8 +10,8 @@ function App() {
   const { activeSong } = useSelector(selectPlayer)
   const dispatch = useDispatch()
 
-  // Always pause audio after reloading
   useEffect(() => {
+    // Always pause audio after reloading
     dispatch(playPause(false))
   }, [])
 
