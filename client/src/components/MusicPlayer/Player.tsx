@@ -25,24 +25,6 @@ const Player: FC<PlayerProps> = ({
   const [audioSource, setAudioSource] = useState('')
   const audioRef = useRef<HTMLAudioElement>(null)
 
-  if (audioRef.current) {
-    if (isPlaying) {
-      audioRef.current.play()
-    } else {
-      audioRef.current.pause()
-    }
-  }
-
-  const getCurrentSong = async () => {
-    try {
-      console.log('call eff')
-      const audio = await getSong(activeSongId)
-      setAudioSource(audio[128])
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   useEffect(() => {
     getCurrentSong()
   }, [activeSongId])
@@ -54,6 +36,23 @@ const Player: FC<PlayerProps> = ({
   useEffect(() => {
     if (audioRef.current) audioRef.current.currentTime = seekTime
   }, [seekTime])
+
+  if (audioRef.current) {
+    if (isPlaying) {
+      audioRef.current.play()
+    } else {
+      audioRef.current.pause()
+    }
+  }
+
+  const getCurrentSong = async () => {
+    try {
+      const audio = await getSong(activeSongId)
+      setAudioSource(audio[128])
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <audio

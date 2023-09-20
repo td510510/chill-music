@@ -1,7 +1,8 @@
 import { FC, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { HiOutlineHashtag, HiOutlineHome, HiOutlineMenu, HiOutlinePhotograph, HiOutlineUserGroup } from 'react-icons/hi'
+import { HiOutlineHashtag, HiOutlineHome, HiOutlineMenu, HiOutlineUserGroup } from 'react-icons/hi'
 import { RiCloseLine } from 'react-icons/ri'
+import { BiSolidVideos } from 'react-icons/bi'
 import { IconType } from 'react-icons'
 
 import { logo } from '@/assets'
@@ -18,7 +19,7 @@ interface ILink {
 
 const links: ILink[] = [
   { name: 'Home', to: '/', icon: HiOutlineHome },
-  { name: 'MV', to: '/mv', icon: HiOutlinePhotograph },
+  { name: 'MV', to: '/mv', icon: BiSolidVideos },
   { name: 'Top 100', to: '/top-100', icon: HiOutlineUserGroup },
   { name: 'Top Charts', to: '/top-charts', icon: HiOutlineHashtag },
 ]

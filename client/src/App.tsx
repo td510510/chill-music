@@ -1,12 +1,19 @@
-import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 
 import { SearchBar, SideBar, MusicPlayer, VideoPlayer } from '@/components'
 import { ArtistDetails, Top100, Home, Search, SongDetails, TopCharts, Playlist, MV } from '@/pages'
-import { selectPlayer } from './redux/features/playerSlice'
+import { selectPlayer, playPause } from './redux/features/playerSlice'
 
 function App() {
   const { activeSong } = useSelector(selectPlayer)
+  const dispatch = useDispatch()
+
+  // Always pause audio after reloading
+  useEffect(() => {
+    dispatch(playPause(false))
+  }, [])
 
   return (
     <div className="relative flex bg-gradient-to-br from-black to-[#121286]">

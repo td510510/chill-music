@@ -11,7 +11,7 @@ interface VolumeBarProps {
 
 const VolumeBar: FC<VolumeBarProps> = ({ volume, min, max, onChange, setVolume }) => {
   return (
-    <div className="hidden lg:flex flex-1 items-center justify-end">
+    <div className="hidden lg:flex flex-1 items-center justify-end cursor-pointer">
       {volume <= 1 && volume > 0.5 && <BsFillVolumeUpFill size={25} color="#FFF" onClick={() => setVolume(0)} />}
       {volume <= 0.5 && volume > 0 && <BsVolumeDownFill size={25} color="#FFF" onClick={() => setVolume(0)} />}
       {volume === 0 && <BsFillVolumeMuteFill size={25} color="#FFF" onClick={() => setVolume(1)} />}
