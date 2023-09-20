@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const musicCoreApi = createApi({
   reducerPath: 'musicCoreApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:8080/api',
+    baseUrl: `${import.meta.env.VITE_HOST_API}/api`,
   }),
   endpoints: (builder) => ({
     getHomePlayList: builder.query({ query: () => '/home' }),
