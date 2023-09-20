@@ -35,21 +35,25 @@ const ArtistSongs: FC<ArtistSongsProps> = ({ artistId }) => {
 
   return (
     <>
-      <div className="flex gap-1 items-center justify-center">
-        <button
-          onClick={() => handleChangePrevPage(page, totalPage)}
-          className={`w-5 h-5 ${page <= 1 ? 'pointer-events-none' : ''}`}
-        >
-          <FcPrevious color="red" className="w-5 h-5" />
-        </button>
-        <span className="text-white">{`${page} / ${totalPage}`}</span>
-        <button
-          onClick={() => handleChangeNextPage(page, totalPage)}
-          className={`w-5 h-5 ${page >= totalPage ? 'pointer-events-none' : ''}`}
-        >
-          <FcNext className="w-5 h-5" />
-        </button>
-      </div>
+      {totalPage ? (
+        <div className="flex gap-1 items-center justify-center">
+          <button
+            onClick={() => handleChangePrevPage(page, totalPage)}
+            className={`w-5 h-5 ${page <= 1 ? 'pointer-events-none' : ''}`}
+          >
+            <FcPrevious color="red" className="w-5 h-5" />
+          </button>
+          <span className="text-white">{`${page} / ${totalPage}`}</span>
+          <button
+            onClick={() => handleChangeNextPage(page, totalPage)}
+            className={`w-5 h-5 ${page >= totalPage ? 'pointer-events-none' : ''}`}
+          >
+            <FcNext className="w-5 h-5" />
+          </button>
+        </div>
+      ) : (
+        ''
+      )}
       <div className="mt-4 mb-10 grid grid-cols-1 xl:grid-cols-2 gap-x-16 gap-y-4" key={playlist?.title}>
         {playlist?.items?.map((item: ISongCard, index: number) => (
           <SongCard
