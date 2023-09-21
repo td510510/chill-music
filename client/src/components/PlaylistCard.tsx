@@ -1,9 +1,5 @@
+import { FC, SyntheticEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
-// import { useDispatch } from 'react-redux'
-
-import { FC } from 'react'
-// import PlayPause from './PlayPause'
-// import { playPause, setActiveSong } from '@/redux/features/playerSlice'
 
 interface PlaylistCardProps {
   title: string
@@ -24,7 +20,11 @@ const PlaylistCard: FC<PlaylistCardProps> = ({ title, sortDescription, thumbnail
         <img
           src={thumbnail}
           alt="song image"
-          className="w-full h-full hover:scale-105 transition-all ease-in-out duration-300"
+          className="w-full h-full min-h-[50px] hover:scale-105 transition-all ease-in-out duration-500 blur-3xl"
+          loading="lazy"
+          onLoad={(e: SyntheticEvent<HTMLImageElement, Event>) => {
+            e.currentTarget.classList.remove('blur-3xl')
+          }}
         />
       </div>
       <div className="mt-4 flex flex-col">

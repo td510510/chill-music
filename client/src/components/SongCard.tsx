@@ -1,4 +1,4 @@
-import { FC, MouseEvent } from 'react'
+import { FC, MouseEvent, SyntheticEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -51,7 +51,17 @@ const SongCard: FC<SongCardProps> = ({
     >
       <h3 className="font-bold text-xs text-white mr-3">{index + 1}</h3>
       <div className="flex-1 flex flex-row justify-between items-center w-full overflow-hidden">
-        <img src={thumbnail} alt={title} className="w-20 -h-20 rounded-lg" />
+        <div className="w-20 h-20 rounded-lg overflow-hidden">
+          <img
+            src={thumbnail}
+            alt={title}
+            className="w-20 h-20 hover:scale-105 transition-all ease-in-out duration-500 blur-xl"
+            loading="lazy"
+            onLoad={(e: SyntheticEvent<HTMLImageElement, Event>) => {
+              e.currentTarget.classList.remove('blur-xl')
+            }}
+          />
+        </div>
         <div className="flex-1 flex flex-col justify-center mx-3">
           <p className="sm:text-base text-sm font-bold text-white ellipsis-two-line">{title}</p>
           <p className="text-xs text-gray-300 mt-1 ellipsis-one-line">
