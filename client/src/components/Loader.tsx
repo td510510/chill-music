@@ -11,7 +11,7 @@ const Loader: FC<LoaderProps> = ({ title, type = 'full' }) => {
   if (type === 'part') {
     return (
       <div
-        className={`loading w-[100vh] h-[100vw] bg-slate-100 flex justify-center items-center absolute rounded-[inherit]`}
+        className={`loading w-[100vh] h-[100vh] bg-slate-100 flex justify-center items-center absolute rounded-[inherit]`}
       >
         <div className="loading-content w-full h-full flex flex-col justify-center p-10 space-y-5 animate-fadeInInfinite">
           <div className="w-[20%] h-6 bg-gray-200 opacity-80" />
@@ -23,7 +23,7 @@ const Loader: FC<LoaderProps> = ({ title, type = 'full' }) => {
   }
 
   return (
-    <div className="w-full h-[100vh] flex justify-center items-center flex-col">
+    <div className="w-full h-[calc(100vh-200px)] flex justify-center items-center flex-col">
       <img src={loader} alt="loader" className="w-32 h-32 object-contain" />
       <h1 className="font-medium text-base sm:text-xl text-white/75 mt-2 text-center">{title || 'Loading'}</h1>
     </div>
