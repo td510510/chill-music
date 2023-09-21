@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, SyntheticEvent } from 'react'
 
 import { getDate } from '@/utils/getDate'
 
@@ -15,9 +15,13 @@ const PlaylistDetail: FC<PlaylistDetailProps> = ({ thumbnailM, title, lastUpdate
     <div className="flex flex-row sm:justify-start justify-center gap-4">
       <div className="sm:w-72 sm:h-72 w-40 h-auto rounded-lg overflow-hidden">
         <img
-          className="block w-full hover:scale-105 transition-all ease-in-out duration-300"
+          className="w-full min-h-[50px] hover:scale-105 transition-all ease-in-out duration-1000 blur-3xl"
           src={thumbnailM}
           alt="thumbnail"
+          loading="lazy"
+          onLoad={(e: SyntheticEvent<HTMLImageElement, Event>) => {
+            e.currentTarget.classList.remove('blur-3xl')
+          }}
         />
       </div>
       <div className="flex-1">
