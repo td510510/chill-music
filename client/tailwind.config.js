@@ -13,6 +13,7 @@ export default {
         slideright: 'slideright 1s ease-in-out',
         wave: 'wave 1.2s linear infinite',
         slowfade: 'slowfade 2.2s ease-in-out',
+        fadeInInfinite: 'fadeIn 3s ease-out infinite alternate',
       },
       keyframes: {
         slowfade: {
@@ -39,6 +40,10 @@ export default {
           '0%': { transform: 'scale(0)' },
           '50%': { transform: 'scale(1)' },
           '100%': { transform: 'scale(0)' },
+        },
+        fadeIn: {
+          '0%': { opacity: 0.3 },
+          '100%': { opacity: 1 },
         },
       },
     },
