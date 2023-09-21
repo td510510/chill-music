@@ -11,6 +11,7 @@ const SearchResult = lazy(() => import('@/pages/SearchResult'))
 const SongDetails = lazy(() => import('@/pages/SongDetails'))
 const Top100 = lazy(() => import('@/pages/Top100'))
 const TopCharts = lazy(() => import('@/pages/TopCharts'))
+const NotFound = lazy(() => import('@/pages/NotFound'))
 
 const RouterPage = () => {
   return (
@@ -25,6 +26,7 @@ const RouterPage = () => {
         <Route path="/playlist/:playlistId" element={<Playlist />} />
         <Route path="/songs/:songId" element={<SongDetails />} />
         <Route path="/search/:searchTerm" element={<SearchResult />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </Suspense>
   )

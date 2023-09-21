@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { HiOutlineHashtag, HiOutlineHome, HiOutlineMenu, HiOutlineUserGroup } from 'react-icons/hi'
 import { RiCloseLine } from 'react-icons/ri'
 import { BiSolidVideos } from 'react-icons/bi'
@@ -48,7 +48,9 @@ const SideBar = () => {
   return (
     <>
       <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#191624]">
-        <img src={logo} alt="logo" className="w-20 mx-auto object-contain block" />
+        <Link to="/" className="w-20 mx-auto">
+          <img src={logo} alt="logo" className="w-20 object-contain block" />
+        </Link>
         <NavLinks />
       </div>
 
